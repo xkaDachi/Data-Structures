@@ -15,7 +15,7 @@ typedef struct Node {
 *                   -----------------
 */
 
-// Print the linked list
+//Print the List
 void printList(Node* head) {
     if (head == NULL){
         printf("List is Empty.");
@@ -26,6 +26,19 @@ void printList(Node* head) {
         head = head->next;
     }
     printf("\n");
+}
+
+//Print the List in reverse order
+void printReverse(Node* head) 
+{ 
+    // Base case   
+    if (head == NULL) {
+        //printf("List is Empty.");
+        return; 
+    } else {  
+    printReverse(head->next); 
+    printf("%d --> ", head->data); 
+    }
 }
 
 //--------------------------------------------------
@@ -212,11 +225,9 @@ void reverse(Node** head){
     while (current != NULL) {
         // Store next
         next = current->next;
- 
-        // Reverse current node's pointer
+        
         current->next = prev;
  
-        // Move pointers one position ahead.
         prev = current;
         current = next;
     }
@@ -229,19 +240,14 @@ void deleteOdd(Node *head)
     if (head == NULL) 
         return; 
   
-    /* Initialize prev and node to be deleted */
     Node* prev = head; 
     Node* node = head->next; 
   
-    while (prev != NULL && node != NULL) 
-    { 
-        /* Change next link of previous node */
+    while (prev != NULL && node != NULL) { 
         prev->next = node->next; 
   
-        /* Free memory */
         free(node); 
-  
-        /* Update prev and node */
+        
         prev = prev->next; 
         if (prev != NULL) 
             node = prev->next; 
@@ -261,3 +267,31 @@ int compareList(Node *a, Node *b)
     } 
     return 1; 
 } 
+
+//Returns the middle Node of the List
+int getMiddle(Node *head) { 
+    Node *slowPointer = head; 
+    Node *fastPointer = head; 
+ 
+    if (head != NULL) 
+    { 
+        while (fastPointer != NULL && fastPointer->next != NULL) 
+        { 
+            fastPointer = fastPointer->next->next; 
+            slowPointer = slowPointer->next; 
+        } 
+        return slowPointer->data; 
+    }
+}
+
+//Returns the number of occurence of a data in a List
+int count(Node* head, int data) { 
+    Node* current = head; 
+    int count = 0; 
+    while (current != NULL) { 
+        if (current->data == data) 
+            count++; 
+        current = current->next; 
+    } 
+    return count; 
+}
