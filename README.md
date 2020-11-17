@@ -22,3 +22,4 @@ This does not mean that you cannot iterate over linked list using node**.
 All the things that can be achieved by node* can also be achieved by node**. 
 It just makes simpler and cleaner to use node* for iteration stuff while node** for manipulating heads.
 ```
+https://stackoverflow.com/questions/55654934/what-is-the-difference-between-node-head-versus-node-head
