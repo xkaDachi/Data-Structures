@@ -63,7 +63,7 @@ void insertAfter(Node* node, int data) {
         printf("Impossible. Cannot add after an inexistant Node.");
         return;
     }
-    Node* newNode = ( Node*)malloc(sizeof( Node));
+    Node* newNode = (Node*)malloc(sizeof( Node));
     newNode->data = data;
     newNode->next = node->next;
     node->next = newNode;
@@ -255,7 +255,7 @@ void deleteOdd(Node *head)
 } 
 
 //Checks if two Lists are identical
-int compareList(Node *a, Node *b) 
+int compareList(Node* a, Node* b) 
 { 
     while (a != NULL && b != NULL) 
     { 
@@ -269,7 +269,7 @@ int compareList(Node *a, Node *b)
 } 
 
 //Returns the middle Node of the List
-int getMiddle(Node *head) { 
+int getMiddle(Node* head) { 
     Node *slowPointer = head; 
     Node *fastPointer = head; 
  
